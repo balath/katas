@@ -17,22 +17,22 @@ class PasswordValidationTest extends FunSuite {
 
   test("On Iteration 2, a valid password, type 2, should return true when is applied to validate function"){
     val validPasswords = List("1234abCD", "12345aB", "_1a_2a_3A_")
-    validPasswords.map(pass => assert(Validation2.validate(pass), clue(pass)))
+    validPasswords.map(pass => assert(Validation2(pass), clue(pass)))
   }
 
   test("On Iteration 2, a invalid password, type 2, should return false when is applied to validate function"){
     val invalidPasswords = List(" ", "", "_", "1a_","123456789", "abcdefghi", "12345abcde", "1234_abcd", "123abC")
-    invalidPasswords.map(pass => assertEquals(Validation2.validate(pass), false, clue(pass)))
+    invalidPasswords.map(pass => assertEquals(Validation2(pass), false, clue(pass)))
   }
 
   test("On Iteration 2, a valid password, type 3, should return true when is applied to validate function"){
     val validPasswords = List("qwertyuiop_ASDFGH", "0123456789_aaaAAA", "_1a_2a_3A_1a_2a_3A_")
-    validPasswords.map(pass => assert(Validation3.validate(pass), clue(pass)))
+    validPasswords.map(pass => assert(Validation3(pass), clue(pass)))
   }
 
   test("On Iteration 2, a invalid password, type 3, should return false when is applied to validate function"){
     val invalidPasswords = List(" ", "", "_", "1a_","123456789qwertyuiop", "abcdefghi", "12345abcde", "1234_abcd", "0123456789aaaaAAA")
-    invalidPasswords.map(pass => assertEquals(Validation3.validate(pass), false, clue(pass)))
+    invalidPasswords.map(pass => assertEquals(Validation3(pass), false, clue(pass)))
   }
 
 }
